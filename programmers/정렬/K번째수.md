@@ -81,5 +81,19 @@ fun solution(array: IntArray, commands: Array<IntArray>): IntArray {
   단, List의 타입일 경우 sort 형태는 없고 sorted의 형태만 존재한다.
 - var answer = intArrayOf() 기본 코드에 size 할당 되지 않아 indexoutofboundsexception 발생되고, 디버깅이 어려워 좋은 방법이 없을까 고민 필요
 
+## 코드 : yerinaoh
+```Swift
+func solution(_ array:[Int], _ commands:[[Int]]) -> [Int] {
+    
+    var answer:[Int] = []
+    
+    commands.forEach {
+        answer.append(Array(array[$0[0] - 1...$0[1]-1]).sorted()[$0[2]-1])
+    }
+    
+    return answer
+}
+```
+
 ## 의문점
 - 재한 사항예외 처리 시 리턴 값은 어떻게 처리해야 되는가?
